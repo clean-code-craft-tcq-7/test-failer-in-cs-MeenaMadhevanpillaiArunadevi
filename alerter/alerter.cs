@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 namespace AlerterSpace {
     class Alerter {
+        static int isProduction = false;
         static int alertFailureCount = 0;
         static int networkAlertStub(float celcius) {
             Console.WriteLine("ALERT: Temperature is {0} celcius", celcius);
@@ -11,10 +12,13 @@ namespace AlerterSpace {
             // stub always succeeds and returns 200
             return (int)celcius;
         }
+        static int networkAlerter(float celcius){
+            return (int)celcius;
+        }
         static void alertInCelcius(float farenheit) {
             float celcius = (farenheit - 32) * 5 / 9;
-            int returnCode = networkAlertStub(celcius);
-            Console.WriteLine("returncode: {0}", returnCode);
+            //check if production or test to switch between networkAlerter and its stub method
+            int returnCode = isProduction == false ? networkAlertStub(celcius) : networkAlerter(celcius);
             if (returnCode != 200) {
                 // non-ok response is not an error! Issues happen in life!
                 // let us keep a count of failures to report
