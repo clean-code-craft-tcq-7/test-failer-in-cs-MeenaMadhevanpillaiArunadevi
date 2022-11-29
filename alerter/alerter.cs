@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace AlerterSpace {
     public partial class Alerter {
-        static int isProduction = false;
+        static bool isProduction = false;
         static int alertFailureCount = 0;
         static int networkAlertStub(float celcius) {
             Console.WriteLine("ALERT: Temperature is {0} celcius", celcius);
