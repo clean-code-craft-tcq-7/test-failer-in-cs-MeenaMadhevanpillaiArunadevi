@@ -2,7 +2,7 @@
 using System.Diagnostics;
 
 namespace MisalignedSpace {
-    class Misaligned {
+    public partial class Misaligned {
         static int printColorMap() {
             string[] majorColors = {"White", "Red", "Black", "Yellow", "Violet"};
             string[] minorColors = {"Blue", "Orange", "Green", "Brown", "Slate"};
