@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 namespace MisalignedSpace{
     public partial class Misaligned{
             public static void testTwentyFivePair_ColorManual(){
