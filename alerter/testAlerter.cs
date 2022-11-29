@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 namespace AlerterSpace{
   public partial class Alerter{
       public static void TestAlerter(){
