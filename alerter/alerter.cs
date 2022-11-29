@@ -2,7 +2,7 @@
 using System.Diagnostics;
 
 namespace AlerterSpace {
-    class Alerter {
+    public partial class Alerter {
         static int isProduction = false;
         static int alertFailureCount = 0;
         static int networkAlertStub(float celcius) {
@@ -28,11 +28,7 @@ namespace AlerterSpace {
             }
         }
         static void Main(string[] args) {
-            alertInCelcius(400.5f);
-            alertInCelcius(303.6f);
-            Console.WriteLine("{0} alerts failed.", alertFailureCount);
-            Debug.Assert(alertFailureCount == 0);
-            Console.WriteLine("All is well (maybe!)\n");
+            TestAlerter();
         }
     }
 }
