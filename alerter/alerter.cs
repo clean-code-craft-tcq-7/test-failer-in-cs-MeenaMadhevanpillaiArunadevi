@@ -1,25 +1,36 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 
-namespace AlerterSpace {
-    public partial class Alerter {
-        static bool isProduction = false;
+namespace AlerterSpace
+{
+    public partial class Alerter
+    {
+        static string env;
         static int alertFailureCount = 0;
-        static int networkAlertStub(float celcius) {
-            Console.WriteLine("ALERT: Temperature is {0} celcius", celcius);
-            // Return 200 for ok
-            // Return 500 for not-ok
-            // stub always succeeds and returns 200
-            return (int)celcius;
+        //production network
+        static int networkAlert(float celsius)
+        {
+            return 200;
         }
-        static int networkAlerter(float celcius){
-            return (int)celcius;
+        //test network stub
+        static int networkAlertStub(float celsius)
+        {
+            Console.WriteLine("ALERT: Temperature is " + celsius + " celsius");
+            if (celsius > 200.0f) //threshold taken as 200 C ; if crosses 200 C, then not-ok
+            {
+                // Return 500 for not-ok
+                return 500;
+            }
+            // Return 200 for ok - if equals 200 C or less than 200 C
+            return 200;
         }
-        static void alertInCelcius(float farenheit) {
-            float celcius = (farenheit - 32) * 5 / 9;
+        static void alertInCelcius(Func<float,int>func, float farenheit)
+        {
+            float celsius = (farenheit - 32) * 5 / 9;
             //check if production or test to switch between networkAlerter and its stub method
-            int returnCode = isProduction == false ? networkAlertStub(celcius) : networkAlerter(celcius);
-            if (returnCode != 200) {
+            int returnCode = func(celsius);
+            if (returnCode != 200)
+            {
                 // non-ok response is not an error! Issues happen in life!
                 // let us keep a count of failures to report
                 // However, this code doesn't count failures!
@@ -27,8 +38,22 @@ namespace AlerterSpace {
                 alertFailureCount += 1;
             }
         }
-        static void Main(string[] args) {
-            TestAlerter();
+        static void Main(string[] args)
+        {
+            if (args.Length > 0)
+            {
+                env = args[0];
+            }
+            else
+            {
+                env = "dev";
+            }
+           
+            TestAlerter(env);
         }
+
+      
+       
     }
+
 }
