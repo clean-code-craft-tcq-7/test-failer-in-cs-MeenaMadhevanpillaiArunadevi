@@ -4,7 +4,7 @@ using System.Diagnostics;
 namespace TshirtSpace {
     public partial class Tshirt {
         static string Size(int cms) {
-            if(cms < 38) {
+            if(cms <= 38) {
                 return "S";
             } else if(cms > 38 && cms < 42) {
                 return "M";
