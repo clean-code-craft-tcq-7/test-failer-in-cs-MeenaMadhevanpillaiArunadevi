@@ -38,3 +38,5 @@ namespace MisalignedSpace
         {
             test_ColorPair();
         }
+    }
+}
