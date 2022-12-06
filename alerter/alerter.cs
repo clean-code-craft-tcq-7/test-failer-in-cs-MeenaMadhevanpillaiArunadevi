@@ -27,7 +27,7 @@ namespace AlerterSpace
         static void alertInCelcius(Func<float,int>func, float farenheit)
         {
             float celsius = (farenheit - 32) * 5 / 9;
-            //check if production or test to switch between networkAlerter and its stub method
+            //pass the necessary method based on the environment (networkAlerter or its stub method)
             int returnCode = func(celsius);
             if (returnCode != 200)
             {
