@@ -12,6 +12,7 @@ namespace MisalignedSpace{
             Debug.Assert(formatColorPairFromColorIndex(0, 4) == "5  | White | Slate");
             //Test Double Digit Color Pair number
             Debug.Assert(formatColorPairFromColorIndex(2, 3) == "14 | Black | Brown");
+            Debug.Assert(formatColorPairFromColorIndex(1, 1) == "7  | Red | Orange");
             Console.WriteLine("All is well (maybe!)");
         }
     }
