@@ -26,8 +26,13 @@ namespace MisalignedSpace
             string colorpair = "";
             var majorcolor_length = majorColors[i].Length;
             var noOfSpaces = 7 - majorcolor_length;
+            // 5 white  2  = 7
+            // 3 red    4  = 7
+            // 5 black  2  = 7
+            // 6 yellow 1  = 7
             if (i * 5 + j + 1 < 10)
-            {               
+            { 
+                //single digit
                 switch(noOfSpaces)
                 {
                     case 2:
@@ -48,7 +53,7 @@ namespace MisalignedSpace
             }
             else
             {
-                //colorpair = String.Format("{0} | {1} | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                //double digit
                 switch (noOfSpaces)
                 {
                     case 2:
