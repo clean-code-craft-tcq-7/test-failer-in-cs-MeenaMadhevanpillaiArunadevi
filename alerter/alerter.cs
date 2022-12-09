@@ -12,18 +12,7 @@ namespace AlerterSpace
         {
             return 200;
         }
-       //test network stub
-        static int networkAlertStub(float celsius)
-        {
-            Console.WriteLine("ALERT: Temperature is " + celsius + " celsius");
-            if (celsius > 200.0f) //threshold taken as 200 C ; if crosses 200 C, then not-ok
-            {
-                // Return 500 for not-ok
-                return 500;
-            }
-            // Return 200 for ok - if equals 200 C or less than 200 C
-            return 200;
-        }
+     
         static void alertInCelcius(Func<float,int>func, float farenheit)
         {
             float celsius = (farenheit - 32) * 5 / 9;
