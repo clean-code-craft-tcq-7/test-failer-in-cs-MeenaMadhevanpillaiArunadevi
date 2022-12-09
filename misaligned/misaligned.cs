@@ -23,14 +23,48 @@ namespace MisalignedSpace
         {
             string[] majorColors = { "White", "Red", "Black", "Yellow", "Violet" };
             string[] minorColors = { "Blue", "Orange", "Green", "Brown", "Slate" };
-            string colorpair;
+            string colorpair = "";
+            var majorcolor_length = majorColors[i].Length;
+            var noOfSpaces = 7 - majorcolor_length;
             if (i * 5 + j + 1 < 10)
-            {
-                colorpair = String.Format("{0}  | {1} | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+            {               
+                switch(noOfSpaces)
+                {
+                    case 2:
+                        // code block
+                        colorpair = String.Format("{0}  | {1}  | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                        break;
+                    case 4:
+                        // code block
+                        colorpair = String.Format("{0}  | {1}    | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                        break;
+                    case 1:
+                        // code block
+                        colorpair = String.Format("{0}  | {1} | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                        break;
+                   
+                }
+
             }
             else
             {
-                colorpair = String.Format("{0} | {1} | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                //colorpair = String.Format("{0} | {1} | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                switch (noOfSpaces)
+                {
+                    case 2:
+                        // code block
+                        colorpair = String.Format("{0} | {1}  | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                        break;
+                    case 4:
+                        // code block
+                        colorpair = String.Format("{0} | {1}    | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                        break;
+                    case 1:
+                        // code block
+                        colorpair = String.Format("{0} | {1} | {2}", i * 5 + j + 1, majorColors[i], minorColors[j]);
+                        break;
+                    
+                }
             }
             return colorpair;
         }
